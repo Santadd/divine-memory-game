@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Memory game</title>
+</head>
+
+<body>
+
+  <main>
+    <!-- Game setup start -->
+    <div class="start-game-screen">
+      <div class="logo">
+        <img src="./assets/logo.svg" alt="game-logo">
+      </div>
+      <div class="menu">
+        <p>Select Theme</p>
+        <div class="themes">
+          <button type="button" class="numbers">
+            Numbers
+          </button>
+          <button type="button" class="icons">
+            Icons
+          </button>
+        </div>
+        <p>Number of Player</p>
+        <div class="players">
+          <button type="button" class="one-player checked">1</button>
+          <button type="button" class="two-players">2</button>
+          <button type="button" class="three-players">3</button>
+          <button type="button" class="four-players">4</button>
+        </div>
+        <p>Grid Size</p>
+        <div class="grid">
+          <button type="button" class="grid-4">4x4</button>
+          <button type="button" class="grid-6">6x6</button>
+        </div>
+        <button type="button" class="start-game">Start Game</button>
+      </div>
+    </div>
+    <!-- Game setup end -->
+
+
+    <!-- Game board start -->
+    <div class="game-board">
+
+      <!-- header -->
+      <div class="header">
+        <div class="logo">
+          <img src="./assets/logo.svg" alt="logo">
+        </div>
+        <div class="menu-buttons">
+          <button class="restart">Restart</button>
+          <button class="New Game">New Game</button>
+        </div>
+      </div>
+      <!-- End header -->
+
+      <div class="game-body">
+        <!-- generate cards here -->
+      </div>
+
+      <!-- Modal Solo Game Over -->
+      <div class="modal-solo-game-over">
+        <h3>You did it!</h3>
+
+        <p>Game over! Here's how you got on...</p>
+        <div class="time-elapsed">
+          <p>Time Elapsed</p>
+          <div class="time">1:53</div>
+        </div>
+
+        <div class="moves-taken">
+          <p>Moves Taken</p>
+          <div class="moves-total">39 Moves</div>
+        </div>
+
+        <div class="modal-buttons">
+          <button type="button" class="btn restart" >Restart</button>
+          <button type="button" class="btn new-game">Setup New Game</button>
+        </div>
+      </div>
+      <!-- End Modal Solo Game Over -->
+
+      <!-- Modal Multiplayer -->
+      <div class="multiplayer-game-over">
+
+        <h3>Player 3 wins</h3>
+        <p>Game over! Here are the results...</p>
+        <!-- player one -->
+        <div class="player-one">
+          <p>Player 1</p>
+          <div class="p1-moves">4 Pairs</div>
+        </div>
+        <!-- player two -->
+        <div class="player-two">
+          <p>Player 2</p>
+          <div class="p2-moves">4 Pairs</div>
+        </div>
+        <!-- player 3 -->
+        <div class="player-three">
+          <p>Player 3</p>
+          <div class="p3-moves">4 Pairs</div>
+        </div>
+        <!-- player 4 -->
+        <div class="player-four">
+          <p>Player 4</p>
+          <div class="p4-moves">4 Pairs</div>
+        </div>
+
+        <div class="modal-buttons">
+          <button type="button" class="btn restart" >Restart</button>
+          <button type="button" class="btn new-game">Setup New Game</button>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <!-- Multiplayer scores start -->
+        <div class="multiplayer-scores">
+          <!-- Player one -->
+          <div class="player-one-container">
+            <div class="player-one">
+              <p class="mobile">P1</p>
+              <p class="desktop">Player 1</p>
+              <div class="p1-score">0</div>
+            </div>
+            <div class="status">Current Turn</div>
+          </div>
+          <!-- End player one -->
+
+          <!-- Player Two -->
+          <div class="player-two-container">
+            <div class="player-two">
+              <p class="mobile">P2</p>
+              <p class="desktop">Player 2</p>
+              <div class="p2-score">0</div>
+            </div>
+            <div class="status">Current Turn</div>
+          </div>
+          <!-- End Player two -->
+
+          <!-- Player three -->
+          <div class="player-three-container">
+            <div class="player-three">
+              <p class="mobile">P3</p>
+              <p class="desktop">Player 3</p>
+              <div class="p3-score">0</div>
+            </div>
+            <div class="status">Current Turn</div>
+          </div>
+          <!-- End player three -->
+
+          <!-- Player four -->
+          <div class="player-four-container">
+            <div class="player-four">
+              <p class="mobile">P4</p>
+              <p class="desktop">Player 4</p>
+              <div class="p4-score">0</div>
+            </div>
+            <div class="status">Current Turn</div>
+          </div>
+          <!-- End player four -->
+
+        </div>
+        <!-- End Multiplayer scores -->
+
+        <!-- Solo game time and moves counter start -->
+        <div class="solo-time-moves">
+          <!-- Time elapsed -->
+          <div class="solo-time">
+            <p>Time</p>
+            <div class="timer">0:00</div>
+          </div>
+          <!-- End time Elapsed -->
+
+          <!-- Moves total -->
+          <div class="total-moves">
+            <p>Moves</p>
+            <div class="moves-count">0:00</div>
+          </div>
+          <!-- End moves total -->
+        </div>
+        <!-- Solo game time and moves counter end -->
+
+      </div>
+
+
+    </div>
+    <!-- Game board end -->
+
+  </main>
+</body>
+
+</html>
