@@ -816,3 +816,7 @@ function gameMode() {
   });
 }
 
+generateRandomNumbers()
+// generateRandomIcons()
+// createNewGame()
+createCards()
