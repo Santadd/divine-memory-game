@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./game.css">
+  <script src="https://kit.fontawesome.com/ba5621a281.js" crossorigin="anonymous"></script>
   <title>Frontend Mentor | Memory game</title>
 </head>
 
@@ -15,38 +17,42 @@
     <!-- Game setup start -->
     <div class="start-game-screen">
       <div class="logo">
-        <img src="./assets/logo.svg" alt="game-logo">
+        <svg width="150" height="28" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.08 21V10.64c0-1.733.287-3.053.86-3.96s1.487-1.36 2.74-1.36c.96 0 1.647.233 2.06.7.413.467.667 1.087.76 1.86.093.773.14 1.627.14 2.56V21h6.12V10.52c0-1.733.28-3.033.84-3.9.56-.867 1.453-1.3 2.68-1.3.987 0 1.693.233 2.12.7.427.467.693 1.087.8 1.86.107.773.16 1.627.16 2.56V21h6.08V8.92c0-2.693-.48-4.753-1.44-6.18C29.04 1.313 27.293.6 24.76.6c-1.387 0-2.673.28-3.86.84a7.44 7.44 0 0 0-2.94 2.48c-.453-1.093-1.153-1.92-2.1-2.48C14.913.88 13.653.6 12.08.6c-1.467 0-2.72.347-3.76 1.04-1.04.693-1.787 1.413-2.24 2.16l-.76-2.64H0V21h6.08Zm39.2.48c1.627 0 3.22-.36 4.78-1.08 1.56-.72 2.86-1.84 3.9-3.36l-4.84-1.76c-.373.427-.9.78-1.58 1.06s-1.487.42-2.42.42c-1.12 0-2.14-.347-3.06-1.04-.92-.693-1.433-1.733-1.54-3.12H55.2c.133-2.347-.2-4.42-1-6.22-.8-1.8-1.98-3.213-3.54-4.24C49.1 1.113 47.227.6 45.04.6c-1.92 0-3.687.427-5.3 1.28a10.074 10.074 0 0 0-3.88 3.6c-.973 1.547-1.46 3.373-1.46 5.48 0 2.187.46 4.067 1.38 5.64a9.228 9.228 0 0 0 3.84 3.62c1.64.84 3.527 1.26 5.66 1.26ZM49.56 9h-9.04c.187-1.36.727-2.347 1.62-2.96.893-.613 1.913-.92 3.06-.92 1.173 0 2.187.327 3.04.98.853.653 1.293 1.62 1.32 2.9Zm14.6 12V10.64c0-1.733.287-3.053.86-3.96s1.487-1.36 2.74-1.36c.96 0 1.647.233 2.06.7.413.467.667 1.087.76 1.86.093.773.14 1.627.14 2.56V21h6.12V10.52c0-1.733.28-3.033.84-3.9.56-.867 1.453-1.3 2.68-1.3.987 0 1.693.233 2.12.7.427.467.693 1.087.8 1.86.107.773.16 1.627.16 2.56V21h6.08V8.92c0-2.693-.48-4.753-1.44-6.18C87.12 1.313 85.373.6 82.84.6c-1.387 0-2.673.28-3.86.84a7.44 7.44 0 0 0-2.94 2.48c-.453-1.093-1.153-1.92-2.1-2.48C72.993.88 71.733.6 70.16.6c-1.467 0-2.72.347-3.76 1.04-1.04.693-1.787 1.413-2.24 2.16l-.76-2.64h-5.32V21h6.08Zm38.84.48c1.813 0 3.52-.373 5.12-1.12 1.6-.747 2.893-1.9 3.88-3.46.987-1.56 1.48-3.527 1.48-5.9 0-2.4-.493-4.367-1.48-5.9-.987-1.533-2.28-2.667-3.88-3.4-1.6-.733-3.307-1.1-5.12-1.1-1.84 0-3.56.367-5.16 1.1-1.6.733-2.893 1.867-3.88 3.4-.987 1.533-1.48 3.5-1.48 5.9 0 2.373.493 4.34 1.48 5.9.987 1.56 2.28 2.713 3.88 3.46 1.6.747 3.32 1.12 5.16 1.12Zm0-4.72c-1.227 0-2.253-.44-3.08-1.32-.827-.88-1.24-2.36-1.24-4.44 0-2.107.42-3.58 1.26-4.42.84-.84 1.86-1.26 3.06-1.26 1.173 0 2.18.42 3.02 1.26.84.84 1.26 2.313 1.26 4.42 0 2.08-.407 3.56-1.22 4.44-.813.88-1.833 1.32-3.06 1.32ZM122.52 21V11c0-1.573.393-2.707 1.18-3.4.787-.693 1.913-1.04 3.38-1.04.293 0 .56.007.8.02.24.013.52.047.84.1V.6c-1.52-.08-2.813.2-3.88.84-1.067.64-1.907 1.76-2.52 3.36l-1.08-3.64h-4.8V21h6.08Zm11.36 6.44c1.733 0 3.107-.187 4.12-.56 1.013-.373 1.847-1.027 2.5-1.96s1.3-2.24 1.94-3.92l7.6-19.84h-6.52l-3.8 12.4-3.88-12.4h-6.52l7.6 19.72c-.213.667-.447 1.153-.7 1.46-.253.307-.607.5-1.06.58-.453.08-1.133.12-2.04.12h-1.2v4.4h1.96Z"
+            fill="#152938" fill-rule="nonzero" />
+        </svg>
       </div>
       <div class="menu">
         <p>Select Theme</p>
         <div class="themes">
-          <button type="button" class="numbers">
+          <button type="button" class="btn btn-theme numbers checked">
             Numbers
           </button>
-          <button type="button" class="icons">
+          <button type="button" class="btn btn-theme icons">
             Icons
           </button>
         </div>
-        <p>Number of Player</p>
+        <p>Number of Players</p>
         <div class="players">
-          <button type="button" class="one-player checked">1</button>
-          <button type="button" class="two-players">2</button>
-          <button type="button" class="three-players">3</button>
-          <button type="button" class="four-players">4</button>
+          <button type="button" class="btn btn-players one-player checked">1</button>
+          <button type="button" class="btn btn-players two-players">2</button>
+          <button type="button" class="btn btn-players three-players">3</button>
+          <button type="button" class="btn btn-players four-players">4</button>
         </div>
         <p>Grid Size</p>
         <div class="grid">
-          <button type="button" class="grid-4">4x4</button>
-          <button type="button" class="grid-6">6x6</button>
+          <button type="button" class="btn btn-grid grid-4 checked">4x4</button>
+          <button type="button" class="btn btn-grid grid-6">6x6</button>
         </div>
-        <button type="button" class="start-game">Start Game</button>
+        <button type="button" class="btn start-game">Start Game</button>
       </div>
     </div>
     <!-- Game setup end -->
 
 
     <!-- Game board start -->
-    <div class="game-board">
+    <div class="game-board hidden">
 
       <!-- header -->
       <div class="header">
@@ -54,8 +60,8 @@
           <img src="./assets/logo.svg" alt="logo">
         </div>
         <div class="menu-buttons">
-          <button class="restart">Restart</button>
-          <button class="New Game">New Game</button>
+          <button class="btn restart">Restart</button>
+          <button class="btn new-game">New Game</button>
         </div>
       </div>
       <!-- End header -->
@@ -65,103 +71,74 @@
       </div>
 
       <!-- Modal Solo Game Over -->
-      <div class="modal-solo-game-over">
+      <div class="modal-solo-game-over hidden">
         <h3>You did it!</h3>
 
-        <p>Game over! Here's how you got on...</p>
+        <p class="info">Game over! Here's how you got on...</p>
         <div class="time-elapsed">
           <p>Time Elapsed</p>
-          <div class="time">1:53</div>
+          <div class="time">0:00</div>
         </div>
 
         <div class="moves-taken">
           <p>Moves Taken</p>
-          <div class="moves-total">39 Moves</div>
+          <div class="moves-total">0</div>
         </div>
 
         <div class="modal-buttons">
-          <button type="button" class="btn restart" >Restart</button>
+          <button type="button" class="btn restart">Restart</button>
           <button type="button" class="btn new-game">Setup New Game</button>
         </div>
       </div>
       <!-- End Modal Solo Game Over -->
 
       <!-- Modal Multiplayer -->
-      <div class="multiplayer-game-over">
+      <div class="multiplayer-game-over hidden">
 
-        <h3>Player 3 wins</h3>
+        <h3 id="player-winner">Player 3 wins</h3>
         <p>Game over! Here are the results...</p>
-        <!-- player one -->
-        <div class="player-one">
-          <p>Player 1</p>
-          <div class="p1-moves">4 Pairs</div>
-        </div>
-        <!-- player two -->
-        <div class="player-two">
-          <p>Player 2</p>
-          <div class="p2-moves">4 Pairs</div>
-        </div>
-        <!-- player 3 -->
-        <div class="player-three">
-          <p>Player 3</p>
-          <div class="p3-moves">4 Pairs</div>
-        </div>
-        <!-- player 4 -->
-        <div class="player-four">
-          <p>Player 4</p>
-          <div class="p4-moves">4 Pairs</div>
+        <div class="modal-content">
+          
         </div>
 
         <div class="modal-buttons">
-          <button type="button" class="btn restart" >Restart</button>
+          <button type="button" class="btn restart">Restart</button>
           <button type="button" class="btn new-game">Setup New Game</button>
         </div>
       </div>
-      
+
       <div class="footer">
         <!-- Multiplayer scores start -->
         <div class="multiplayer-scores">
           <!-- Player one -->
-          <div class="player-one-container">
-            <div class="player-one">
-              <p class="mobile">P1</p>
-              <p class="desktop">Player 1</p>
-              <div class="p1-score">0</div>
-            </div>
-            <div class="status">Current Turn</div>
+          <div class="player-one active">
+            <p class="mobile hidden">P1</p>
+            <p class="desktop">Player 1</p>
+            <div class="p1-score">0</div>
           </div>
           <!-- End player one -->
 
           <!-- Player Two -->
-          <div class="player-two-container">
-            <div class="player-two">
-              <p class="mobile">P2</p>
-              <p class="desktop">Player 2</p>
-              <div class="p2-score">0</div>
-            </div>
-            <div class="status">Current Turn</div>
+          <div class="player-two">
+            <p class="mobile hidden">P2</p>
+            <p class="desktop">Player 2</p>
+            <div class="p2-score">0</div>
           </div>
           <!-- End Player two -->
 
           <!-- Player three -->
-          <div class="player-three-container">
-            <div class="player-three">
-              <p class="mobile">P3</p>
-              <p class="desktop">Player 3</p>
-              <div class="p3-score">0</div>
-            </div>
-            <div class="status">Current Turn</div>
+          <div class="player-three">
+            <p class="mobile hidden">P3</p>
+            <p class="desktop">Player 3</p>
+            <div class="p3-score">0</div>
           </div>
           <!-- End player three -->
 
           <!-- Player four -->
-          <div class="player-four-container">
-            <div class="player-four">
-              <p class="mobile">P4</p>
-              <p class="desktop">Player 4</p>
-              <div class="p4-score">0</div>
-            </div>
-            <div class="status">Current Turn</div>
+          <div class="player-four">
+            <p class="mobile hidden">P4</p>
+            <p class="desktop">Player 4</p>
+            <div class="p4-score">0</div>
           </div>
           <!-- End player four -->
 
@@ -169,7 +146,7 @@
         <!-- End Multiplayer scores -->
 
         <!-- Solo game time and moves counter start -->
-        <div class="solo-time-moves">
+        <div class="solo-time-moves hidden">
           <!-- Time elapsed -->
           <div class="solo-time">
             <p>Time</p>
@@ -180,7 +157,7 @@
           <!-- Moves total -->
           <div class="total-moves">
             <p>Moves</p>
-            <div class="moves-count">0:00</div>
+            <div class="moves-count">0</div>
           </div>
           <!-- End moves total -->
         </div>
@@ -193,6 +170,7 @@
     <!-- Game board end -->
 
   </main>
+  <script src="./main.js" type="module"></script>
 </body>
 
 </html>
