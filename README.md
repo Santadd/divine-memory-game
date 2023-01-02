@@ -1,22 +1,49 @@
-## The challenge
+# Suite landing page Project
 
-Your challenge is to build out this Memory game and get it looking as close to the design as possible.
+## Description
 
-Your users should be able to:
+This is a solution to AmaliTech's Training Phase 2 challenge.
 
-- View the optimal layout for the game depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Play the Memory game either solo or multiplayer (up to 4 players)
-- Set the theme to use numbers or icons within the tiles
-- Choose to play on either a 6x6 or 4x4 grid
+## Getting Started
+- [Overview](#overview)
+    - [Requirements](#requirements)
+    - [Screenshots](#screenshots)
+    - [Link](#link)
+- [Design Process](#design-process)
+    - [Built with](#built-with)
+- [Author](#author)
+
+## Overview
+
+### Requirements
+Users should be able to:
+
+1. View the optimal layout depending on their device's screen size
+2. See hover states for interactive elements
+3. Play the Memory game either solo or multiplayer (up to 4 players)
+4. Set the theme to use numbers or icons within the tiles
+5. Choose to play on either a 6x6 or 4x4 grid 
+### Screenshots
+
+![](screenshots.png)
+
+### Link
+- Web url: [divine-memory-game.netlify.app](https://divine-memory-game.netlify.app/) 
 
 
-### Expected behaviour
+## Design Process
 
-- You can choose to make the default screen either the Start Game screen or the solo player 4x4 grid. Note that we're using the solo player 4x4 grid for the design screenshot, so if you choose the Start Game screen, it won't match up in the design comparison slider. This isn't a big deal, but is something worth considering.
-- In a solo game, track the time elapsed since first clicking on a tile and the total number of moves made. A move counts as two tiles being selected as a potential match. Once all pairs have been found, stop the timer and show the end of game modal with the stats.
-- In a multiplayer game, track the total number of pairs each player has found. If a player finds a pair, increment their score by one. The current turn switches to the next player after the current player has made a move to find a potential match.
-- Clicking "Restart" will restart the game with the current settings
-- Clicking "New Game" will go to the Start Game screen where the player can choose their settings
-- The icons in the design are from [Font Awesome](https://fontawesome.com/). Please choose whatever icons you prefer. You could even use a different icon library, if you like.
+### Built with
+- HTML5 
+- CSS 
+-Vanilla JS
+
+
+## Author
+- Divine Duah
+- Email:
+    - duahdivine1@gmail.com
+    -  divine.duah@amalitech.org
+
+
 
