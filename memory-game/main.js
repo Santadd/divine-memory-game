@@ -21,21 +21,20 @@ const mobileMenuButton = document.querySelector(".btn-menu");
 const mobileMenuModal = document.querySelector(".mobile-menu-modal");
 const resumeGameButton = document.querySelector(".resume-game");
 
-
 // Mobile Menu
 mobileMenuButton.addEventListener("click", () => {
   mobileMenuModal.classList.remove("hidden");
   document.body.style.pointerEvents = "none";
   mobileMenuModal.style.pointerEvents = "auto";
-  pauseTimer()
-})
+  pauseTimer();
+});
 
 // Resume Game
 resumeGameButton.addEventListener("click", () => {
   mobileMenuModal.classList.add("hidden");
   document.body.style.pointerEvents = "auto";
   resumeTimer();
-})
+});
 
 // Start Game Menu
 function startGame(button1, button2) {
@@ -181,10 +180,12 @@ restartButton.forEach((btn) => {
     // Reset current game board
     resetGame();
     // generate theme for game board
-    gameBoard.classList.contains("numbers") ? generateRandomNumbers() : generateRandomIcons();
+    gameBoard.classList.contains("numbers")
+      ? generateRandomNumbers()
+      : generateRandomIcons();
     document.body.style.pointerEvents = "auto";
-  })
-})
+  });
+});
 
 // Remove cards
 function removeCards() {
@@ -194,7 +195,7 @@ function removeCards() {
   });
 }
 
-// New Game functionality 
+// New Game functionality
 newGameButton.forEach((btn) => {
   btn.addEventListener("click", () => {
     window.location.reload();
@@ -220,71 +221,86 @@ newGameButton.forEach((btn) => {
     // resetGame();
     // // remove cards
     // removeCards();
-  })
-})
+  });
+});
 
 let winnerText = document.querySelector("#player-winner");
-let playerOne = multiplayerScores.children[0].querySelector(".p1-score")
-let playerTwo = multiplayerScores.children[1].querySelector(".p2-score")
-let playerThree = multiplayerScores.children[2].querySelector(".p3-score")
-let playerFour = multiplayerScores.children[3].querySelector(".p4-score")
-
+let playerOne = multiplayerScores.children[0].querySelector(".p1-score");
+let playerTwo = multiplayerScores.children[1].querySelector(".p2-score");
+let playerThree = multiplayerScores.children[2].querySelector(".p3-score");
+let playerFour = multiplayerScores.children[3].querySelector(".p4-score");
 
 function playerModalShow() {
   // For 2-player
   if (gameBoard.classList.contains("duo")) {
-    let scores = []
-    
+    let scores = [];
+
     // Store scores in array
-    scores.push([Number(multiplayerScores.children[0].querySelector(".p1-score").textContent), 
-                "player-one", "p1-moves", "Player 1"])
-    scores.push([Number(multiplayerScores.children[1].querySelector(".p2-score").textContent), 
-                "player-two", "p2-moves", "Player 2"])
-    
+    scores.push([
+      Number(
+        multiplayerScores.children[0].querySelector(".p1-score").textContent
+      ),
+      "player-one",
+      "p1-moves",
+      "Player 1",
+    ]);
+    scores.push([
+      Number(
+        multiplayerScores.children[1].querySelector(".p2-score").textContent
+      ),
+      "player-two",
+      "p2-moves",
+      "Player 2",
+    ]);
+
     // Sort the array
-    scores.sort((a, b) => b[0]-a[0])
-    
+    scores.sort((a, b) => b[0] - a[0]);
+
     // Get maximum score
     let numbersFromArr = scores.map((innerArr) => {
-      return innerArr[0]
-    })
+      return innerArr[0];
+    });
 
     // Maximum Score
     let maxScore = Math.max(...numbersFromArr);
     let playerTie;
     let filterScores = scores.filter((innerArr) => {
       return innerArr[0] === Math.max(...numbersFromArr);
-    })
-    filterScores.length > 1 ? playerTie=true: playerTie=false;
+    });
+    filterScores.length > 1 ? (playerTie = true) : (playerTie = false);
     if (playerTie) {
       winnerText.innerHTML = "It's a tie!";
 
       for (const score of scores) {
-        if(score[0] === maxScore) {
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]} active"> 
+        if (score[0] === maxScore) {
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]} active"> 
           <p>${score[3]} (Winner!)</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
+          </div>`
+          );
         }
       }
-    }
-    else {
+    } else {
       for (const score of scores) {
-        if(score[0] === maxScore) {
-          winnerText.innerHTML = `${score[3]} wins!`
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]} active"> 
+        if (score[0] === maxScore) {
+          winnerText.innerHTML = `${score[3]} wins!`;
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]} active"> 
           <p>${score[3]}</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
-        }
-        else {
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]}"> 
+          </div>`
+          );
+        } else {
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]}"> 
           <p>${score[3]}</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
+          </div>`
+          );
         }
       }
     }
@@ -292,68 +308,91 @@ function playerModalShow() {
   }
   // For trio-player game
   else if (gameBoard.classList.contains("trio")) {
-    let scores = []
-    
+    let scores = [];
+
     // Store scores in array
-    scores.push([Number(multiplayerScores.children[0].querySelector(".p1-score").textContent), 
-                "player-one", "p1-moves", "Player 1"]);
-    scores.push([Number(multiplayerScores.children[1].querySelector(".p2-score").textContent), 
-                "player-two", "p2-moves", "Player 2"]);
-    scores.push([Number(multiplayerScores.children[2].querySelector(".p3-score").textContent), 
-                "player-three", "p3-moves", "Player 3"]);
-    
+    scores.push([
+      Number(
+        multiplayerScores.children[0].querySelector(".p1-score").textContent
+      ),
+      "player-one",
+      "p1-moves",
+      "Player 1",
+    ]);
+    scores.push([
+      Number(
+        multiplayerScores.children[1].querySelector(".p2-score").textContent
+      ),
+      "player-two",
+      "p2-moves",
+      "Player 2",
+    ]);
+    scores.push([
+      Number(
+        multiplayerScores.children[2].querySelector(".p3-score").textContent
+      ),
+      "player-three",
+      "p3-moves",
+      "Player 3",
+    ]);
+
     // Sort the array
-    scores.sort((a, b) => b[0]-a[0])
-    
+    scores.sort((a, b) => b[0] - a[0]);
+
     // Get maximum score
     let numbersFromArr = scores.map((innerArr) => {
-      return innerArr[0]
-    })
+      return innerArr[0];
+    });
 
     // Maximum Score
     let maxScore = Math.max(...numbersFromArr);
     let playerTie;
     let filterScores = scores.filter((innerArr) => {
       return innerArr[0] === Math.max(...numbersFromArr);
-    })
-    filterScores.length > 1 ? playerTie=true: playerTie=false;
-    
+    });
+    filterScores.length > 1 ? (playerTie = true) : (playerTie = false);
+
     // Check for tie
     if (playerTie) {
       winnerText.innerHTML = "It's a tie!";
       for (const score of scores) {
-        if(score[0] === maxScore) {
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]} active"> 
+        if (score[0] === maxScore) {
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]} active"> 
           <p>${score[3]} (Winner!)</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
-        }
-        else {
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]}"> 
+          </div>`
+          );
+        } else {
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]}"> 
           <p>${score[3]}</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
+          </div>`
+          );
         }
       }
-    }
-    else {
+    } else {
       for (const score of scores) {
-        if(score[0] === maxScore) {
-          winnerText.innerHTML = `${score[3]} wins!`
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]} active"> 
+        if (score[0] === maxScore) {
+          winnerText.innerHTML = `${score[3]} wins!`;
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]} active"> 
           <p>${score[3]}</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
-        }
-        else {
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]}"> 
+          </div>`
+          );
+        } else {
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]}"> 
           <p>${score[3]}</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
+          </div>`
+          );
         }
       }
     }
@@ -361,101 +400,135 @@ function playerModalShow() {
   }
   // Multiplayer game
   else if (gameBoard.classList.contains("multiplayer")) {
-
-    let scores = []
+    let scores = [];
     // Store scores in array
-    scores.push([Number(multiplayerScores.children[0].querySelector(".p1-score").textContent), 
-                "player-one", "p1-moves", "Player 1"]);
-    scores.push([Number(multiplayerScores.children[1].querySelector(".p2-score").textContent), 
-                "player-two", "p2-moves", "Player 2"]);
-    scores.push([Number(multiplayerScores.children[2].querySelector(".p3-score").textContent), 
-                "player-three", "p3-moves", "Player 3"]);
-    scores.push([Number(multiplayerScores.children[3].querySelector(".p4-score").textContent), 
-                "player-four", "p4-moves", "Player 4"]);
+    scores.push([
+      Number(
+        multiplayerScores.children[0].querySelector(".p1-score").textContent
+      ),
+      "player-one",
+      "p1-moves",
+      "Player 1",
+    ]);
+    scores.push([
+      Number(
+        multiplayerScores.children[1].querySelector(".p2-score").textContent
+      ),
+      "player-two",
+      "p2-moves",
+      "Player 2",
+    ]);
+    scores.push([
+      Number(
+        multiplayerScores.children[2].querySelector(".p3-score").textContent
+      ),
+      "player-three",
+      "p3-moves",
+      "Player 3",
+    ]);
+    scores.push([
+      Number(
+        multiplayerScores.children[3].querySelector(".p4-score").textContent
+      ),
+      "player-four",
+      "p4-moves",
+      "Player 4",
+    ]);
     // Sort the array
-    scores.sort((a, b) => b[0]-a[0])
+    scores.sort((a, b) => b[0] - a[0]);
     // Get maximum score
     let numbersFromArr = scores.map((innerArr) => {
-      return innerArr[0]
-    })
+      return innerArr[0];
+    });
 
     // Maximum Score
     let maxScore = Math.max(...numbersFromArr);
     let playerTie;
     let filterScores = scores.filter((innerArr) => {
       return innerArr[0] === Math.max(...numbersFromArr);
-    })
-    filterScores.length > 1 ? playerTie=true: playerTie=false;
+    });
+    filterScores.length > 1 ? (playerTie = true) : (playerTie = false);
     // Check for tie
     if (playerTie) {
       winnerText.innerHTML = "It's a tie!";
       for (const score of scores) {
-        if(score[0] === maxScore) {
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]} active"> 
+        if (score[0] === maxScore) {
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]} active"> 
           <p>${score[3]} (Winner!)</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
-        }
-        else {
-          
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]}"> 
+          </div>`
+          );
+        } else {
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]}"> 
           <p>${score[3]}</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
+          </div>`
+          );
         }
       }
-    }
-    else {
+    } else {
       for (const score of scores) {
-        if(score[0] === maxScore) {
-          winnerText.innerHTML = `${score[3]} wins!`
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]} active"> 
+        if (score[0] === maxScore) {
+          winnerText.innerHTML = `${score[3]} wins!`;
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]} active"> 
           <p>${score[3]}</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
-        }
-        else {
-          multiplayerModalContent.insertAdjacentHTML("beforeend", 
-          `<div class="modal-${score[1]}"> 
+          </div>`
+          );
+        } else {
+          multiplayerModalContent.insertAdjacentHTML(
+            "beforeend",
+            `<div class="modal-${score[1]}"> 
           <p>${score[3]}</p>
           <div class="${score[2]}">${score[0]} Pairs</div>
-          </div>`)
+          </div>`
+          );
         }
       }
     }
     multiplayerModal.classList.remove("hidden");
-  }
-  else {
+  } else {
     // for solo player game
-    clearInterval(interval)
+    clearInterval(interval);
     modalTime.innerHTML = timer.innerHTML;
     modalTotalMoves.innerHTML = soloMovesCount.innerHTML + " Moves";
 
     soloModal.classList.remove("hidden");
-
-
   }
-  
 }
 
 function finalResults() {
   const cards = document.querySelectorAll(".card");
   cards.forEach((card) => {
     card.addEventListener("click", () => {
-      const matchedCards = document.querySelectorAll(".matched")
-      if (matchedCards.length === 16 && gameBoard.classList.contains("grid-4")) {
+      const matchedCards = document.querySelectorAll(".matched");
+      if (
+        matchedCards.length === 16 &&
+        gameBoard.classList.contains("grid-4")
+      ) {
         // display result modal
         playerModalShow();
-      }
-      else if (matchedCards.length === 36 && gameBoard.classList.contains("grid-6")) {
+        document.body.style.pointerEvents = "none";
+        soloModal.style.pointerEvents = "auto";
+        multiplayerModal.style.pointerEvents = "auto";
+      } else if (
+        matchedCards.length === 36 &&
+        gameBoard.classList.contains("grid-6")
+      ) {
         // display result modal
         playerModalShow();
+        document.body.style.pointerEvents = "none";
+        soloModal.style.pointerEvents = "auto";
+        multiplayerModal.style.pointerEvents = "auto";
       }
-    })
-  })
+    });
+  });
 }
 
 // Create Cards
@@ -623,8 +696,7 @@ function generateRandomIcons() {
 
 let flippedCards = [];
 const soloMovesCount = document.querySelector(".moves-count");
-let moves = 0
-
+let moves = 0;
 
 function checkPairs() {
   // Get number of cards flipped
@@ -658,7 +730,7 @@ function checkPairs() {
   }
 
   // If flipped cards exceed 2 reset
-  else if (numberOfCardsFlipped >= 2) {
+  if (numberOfCardsFlipped >= 2) {
     // Increase moves count for solo player
     moves++;
     soloMovesCount.innerHTML = moves;
@@ -693,8 +765,7 @@ function nextPlayer() {
           multiplayerScores.children[1].classList.remove("active");
         }, 600);
       }
-    } 
-    else if (gameBoard.classList.contains("trio")) {
+    } else if (gameBoard.classList.contains("trio")) {
       setTimeout(() => {
         // remove active class from current player
         multiplayerScores.children[currentPlayer].classList.remove("active");
@@ -703,8 +774,7 @@ function nextPlayer() {
         // assign active class to the current player
         multiplayerScores.children[currentPlayer].classList.add("active");
       }, 600);
-    }
-    else if (gameBoard.classList.contains("multiplayer")) {
+    } else if (gameBoard.classList.contains("multiplayer")) {
       setTimeout(() => {
         // remove active class from current player
         multiplayerScores.children[currentPlayer].classList.remove("active");
@@ -714,7 +784,6 @@ function nextPlayer() {
         multiplayerScores.children[currentPlayer].classList.add("active");
       }, 600);
     }
-
   }
 }
 
@@ -748,18 +817,14 @@ function updateCurrentPlayerScore() {
     if (multiplayerScores.children[0].classList.contains("active")) {
       // multiplayerScores.children[0].querySelector(".p1-score").textContent
       playerOneScore.innerHTML = Number(playerOneScore.innerHTML) + 1;
-    } 
-    else if (multiplayerScores.children[1].classList.contains("active")) {
+    } else if (multiplayerScores.children[1].classList.contains("active")) {
       playerTwoScore.innerHTML = Number(playerTwoScore.innerHTML) + 1;
-    } 
-    else if (multiplayerScores.children[2].classList.contains("active")) {
+    } else if (multiplayerScores.children[2].classList.contains("active")) {
       playerThreeScore.innerHTML = Number(playerThreeScore.innerHTML) + 1;
-    }
-    else if (multiplayerScores.children[3].classList.contains("active")) {
+    } else if (multiplayerScores.children[3].classList.contains("active")) {
       playerFourScore.innerHTML = Number(playerFourScore.innerHTML) + 1;
     }
   }
-
 }
 
 let minutes = 0;
@@ -770,15 +835,16 @@ const timer = document.querySelector(".timer");
 
 // Start timer
 function startTimer() {
-  
   if (!done) {
     done = true;
     interval = setInterval(() => {
-      timer.textContent = `${minutes}:${seconds<=9 ? "0" + seconds: seconds}`;
+      timer.textContent = `${minutes}:${
+        seconds <= 9 ? "0" + seconds : seconds
+      }`;
       seconds++;
       if (seconds === 60) {
         minutes++;
-        seconds = 0
+        seconds = 0;
       }
     }, 1000);
   }
@@ -797,7 +863,9 @@ function resumeTimer() {
   if (!done) {
     done = true;
     interval = setInterval(() => {
-      timer.textContent = `${minutes}:${seconds<=9 ? "0" + seconds: seconds}`;
+      timer.textContent = `${minutes}:${
+        seconds <= 9 ? "0" + seconds : seconds
+      }`;
       seconds++;
       if (seconds === 60) {
         minutes++;
@@ -811,28 +879,28 @@ function resetGame() {
   // Get cards
   const cards = document.querySelectorAll(".card");
   // Get multiplayer scores children
-  const multiScores = multiplayerScores.children
+  const multiScores = multiplayerScores.children;
   currentPlayer = 0;
   // for solo game
-  moves = 0
-  soloMovesCount.innerHTML = 0
-  minutes = 0
-  seconds = 1
-  timer.innerHTML = "0:00"
-  clearInterval(interval)
-  done = false
+  moves = 0;
+  soloMovesCount.innerHTML = 0;
+  minutes = 0;
+  seconds = 1;
+  timer.innerHTML = "0:00";
+  clearInterval(interval);
+  done = false;
   // for multiplayer game
   Array.from(multiScores).forEach((child) => {
     child.classList.remove("active");
-    child.querySelector("div").innerHTML = 0
+    child.querySelector("div").innerHTML = 0;
   });
   // Remove flip and matched classes from card
   cards.forEach((card) => {
-    card.innerHTML = ""
+    card.innerHTML = "";
     card.classList.remove("flip");
     card.classList.remove("matched");
   });
-  multiScores[0].classList.add("active")
+  multiScores[0].classList.add("active");
 }
 
 // Game mode logic

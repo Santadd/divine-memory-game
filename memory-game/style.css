@@ -680,8 +680,8 @@ body {
   .start-game-screen .menu p {
     font-size: 15px;
   }
-  .start-game-screen .themes, 
-  .start-game-screen .players, 
+  .start-game-screen .themes,
+  .start-game-screen .players,
   .start-game-screen .grid {
     margin-top: 11px;
     margin-bottom: 24px;
@@ -706,7 +706,7 @@ body {
     font-size: 18px;
     border-radius: 26px;
   }
-  
+
   /* ====== GAME BOARD ====== */
   .game-board {
     max-width: 327px;
@@ -853,86 +853,86 @@ body {
     margin-top: 9px;
   }
   .multiplayer-game-over .modal-player-one,
-.modal-player-two,
-.modal-player-three,
-.modal-player-four {
-  height: 48px;
-  border-radius: 5px;
-  width: auto;
-  margin: 0 24px 8px 24px;
-}
-.multiplayer-game-over .modal-player-one p,
-.modal-player-two p,
-.modal-player-three p,
-.modal-player-four p {
-  font-size: 13px;
-  padding: 0 16px;
-  margin-top: 25px;
-}
-.multiplayer-game-over .modal-player-one .p1-moves,
-.modal-player-two .p2-moves,
-.modal-player-three .p3-moves,
-.modal-player-four .p4-moves {
-  font-size: 20px;
-}
-.multiplayer-game-over .modal-buttons {
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
-/* ======= MODAL SOLO GAME OVER ======= */
-.modal-solo-game-over {
-  top: 146px;
-  width: 327px;
-  left: 0px;
-  border-radius: 10px;
-}
-.modal-solo-game-over h3 {
-  font-size: 24px;
-  margin-top: 32px;
-}
-.modal-solo-game-over p.info {
-  font-size: 14px;
-  margin-bottom: 24px;
-  margin-top: 9px;
-}
-.modal-solo-game-over .time-elapsed,
-.moves-taken {
-  height: 48px;
-  border-radius: 5px;
-  margin: 0 24px 8px 24px;
-  padding: 0 16px 0 16px;
-}
-.modal-solo-game-over .time-elapsed p,
-.moves-taken p {
-  font-size: 13px;
-}
-.modal-solo-game-over .time-elapsed .time,
-.moves-total {
-  font-size: 20px;
-}
-.modal-solo-game-over .modal-buttons {
-  flex-direction: column;
-  margin: 0 auto;
-  gap: 14px;
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
-/* ======= MOBILE MENU MODAL */
-.game-board .mobile-menu-modal {
-  position: absolute;
-  top: 222px;
-  font-size: 18px;
-  display: flex;
-  flex-direction: column;
-  width: 327px;
-  padding: 24px 24px;
-  justify-content: space-between;
-  gap: 16px;
-  background: var(--color-grey-white);
-  border-radius: 20px;
-  z-index: 9999;
-  box-shadow: 1px 1px 1px 2000px rgba(0, 0, 0, 0.5);
-}
+  .modal-player-two,
+  .modal-player-three,
+  .modal-player-four {
+    height: 48px;
+    border-radius: 5px;
+    width: auto;
+    margin: 0 24px 8px 24px;
+  }
+  .multiplayer-game-over .modal-player-one p,
+  .modal-player-two p,
+  .modal-player-three p,
+  .modal-player-four p {
+    font-size: 13px;
+    padding: 0 16px;
+    margin-top: 25px;
+  }
+  .multiplayer-game-over .modal-player-one .p1-moves,
+  .modal-player-two .p2-moves,
+  .modal-player-three .p3-moves,
+  .modal-player-four .p4-moves {
+    font-size: 20px;
+  }
+  .multiplayer-game-over .modal-buttons {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  /* ======= MODAL SOLO GAME OVER ======= */
+  .modal-solo-game-over {
+    top: 146px;
+    width: 327px;
+    left: 0px;
+    border-radius: 10px;
+  }
+  .modal-solo-game-over h3 {
+    font-size: 24px;
+    margin-top: 32px;
+  }
+  .modal-solo-game-over p.info {
+    font-size: 14px;
+    margin-bottom: 24px;
+    margin-top: 9px;
+  }
+  .modal-solo-game-over .time-elapsed,
+  .moves-taken {
+    height: 48px;
+    border-radius: 5px;
+    margin: 0 24px 8px 24px;
+    padding: 0 16px 0 16px;
+  }
+  .modal-solo-game-over .time-elapsed p,
+  .moves-taken p {
+    font-size: 13px;
+  }
+  .modal-solo-game-over .time-elapsed .time,
+  .moves-total {
+    font-size: 20px;
+  }
+  .modal-solo-game-over .modal-buttons {
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 14px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  /* ======= MOBILE MENU MODAL */
+  .game-board .mobile-menu-modal {
+    position: absolute;
+    top: 222px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 327px;
+    padding: 24px 24px;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--color-grey-white);
+    border-radius: 20px;
+    z-index: 9999;
+    box-shadow: 1px 1px 1px 2000px rgba(0, 0, 0, 0.5);
+  }
 }
