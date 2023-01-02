@@ -58,9 +58,18 @@
         <div class="logo">
           <img src="./assets/logo.svg" alt="logo">
         </div>
-        <div class="menu-buttons">
+        <div class="menu-buttons desktop">
           <button class="btn restart">Restart</button>
           <button class="btn new-game">New Game</button>
+        </div>
+        <div class="menu-button mobile">
+          <button class="btn btn-menu">Menu</button>
+        </div>
+        <!-- mobile Menu Modals -->
+        <div class="mobile-menu-modal hidden">
+          <button class="btn restart">Restart</button>
+          <button class="btn new-game">New Game</button>
+          <button class="btn resume-game">Resume Game</button>
         </div>
       </div>
       <!-- End header -->
@@ -111,7 +120,7 @@
         <div class="multiplayer-scores">
           <!-- Player one -->
           <div class="player-one active">
-            <p class="mobile hidden">P1</p>
+            <p class="mobile">P1</p>
             <p class="desktop">Player 1</p>
             <div class="p1-score">0</div>
           </div>
@@ -119,7 +128,7 @@
 
           <!-- Player Two -->
           <div class="player-two">
-            <p class="mobile hidden">P2</p>
+            <p class="mobile">P2</p>
             <p class="desktop">Player 2</p>
             <div class="p2-score">0</div>
           </div>
@@ -127,7 +136,7 @@
 
           <!-- Player three -->
           <div class="player-three">
-            <p class="mobile hidden">P3</p>
+            <p class="mobile">P3</p>
             <p class="desktop">Player 3</p>
             <div class="p3-score">0</div>
           </div>
@@ -135,7 +144,7 @@
 
           <!-- Player four -->
           <div class="player-four">
-            <p class="mobile hidden">P4</p>
+            <p class="mobile">P4</p>
             <p class="desktop">Player 4</p>
             <div class="p4-score">0</div>
           </div>

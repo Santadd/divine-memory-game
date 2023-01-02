@@ -16,7 +16,26 @@ const multiplayerModal = document.querySelector(".multiplayer-game-over");
 const multiplayerModalContent = document.querySelector(".modal-content");
 const soloModal = document.querySelector(".modal-solo-game-over");
 const modalTime = soloModal.querySelector(".time");
-const modalTotalMoves = soloModal.querySelector(".moves-total")
+const modalTotalMoves = soloModal.querySelector(".moves-total");
+const mobileMenuButton = document.querySelector(".btn-menu");
+const mobileMenuModal = document.querySelector(".mobile-menu-modal");
+const resumeGameButton = document.querySelector(".resume-game");
+
+
+// Mobile Menu
+mobileMenuButton.addEventListener("click", () => {
+  mobileMenuModal.classList.remove("hidden");
+  document.body.style.pointerEvents = "none";
+  mobileMenuModal.style.pointerEvents = "auto";
+  pauseTimer()
+})
+
+// Resume Game
+resumeGameButton.addEventListener("click", () => {
+  mobileMenuModal.classList.add("hidden");
+  document.body.style.pointerEvents = "auto";
+  resumeTimer();
+})
 
 // Start Game Menu
 function startGame(button1, button2) {
@@ -156,12 +175,14 @@ restartButton.forEach((btn) => {
     // Hide all modals
     multiplayerModal.classList.add("hidden");
     soloModal.classList.add("hidden");
+    mobileMenuModal.classList.add("hidden");
     // Reset multiplayer modal
     multiplayerModalContent.innerHTML = "";
     // Reset current game board
     resetGame();
     // generate theme for game board
     gameBoard.classList.contains("numbers") ? generateRandomNumbers() : generateRandomIcons();
+    document.body.style.pointerEvents = "auto";
   })
 })
 
@@ -763,6 +784,29 @@ function startTimer() {
   }
 }
 
+// Pause timer
+function pauseTimer() {
+  if (done) {
+    done = false;
+    clearInterval(interval);
+  }
+}
+
+// resume timer
+function resumeTimer() {
+  if (!done) {
+    done = true;
+    interval = setInterval(() => {
+      timer.textContent = `${minutes}:${seconds<=9 ? "0" + seconds: seconds}`;
+      seconds++;
+      if (seconds === 60) {
+        minutes++;
+        seconds = 0;
+      }
+    }, 1000);
+  }
+}
+
 function resetGame() {
   // Get cards
   const cards = document.querySelectorAll(".card");
@@ -816,7 +860,7 @@ function gameMode() {
   });
 }
 
-generateRandomNumbers()
+// generateRandomNumbers()
 // generateRandomIcons()
 // createNewGame()
-createCards()
+// createCards()
