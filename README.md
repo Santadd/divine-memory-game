@@ -25,7 +25,7 @@ Users should be able to:
 5. Choose to play on either a 6x6 or 4x4 grid 
 ### Screenshots
 
-![](screenshots.png)
+![](Screenshots.png)
 
 ### Link
 - Web url: [divine-memory-game.netlify.app](https://divine-memory-game.netlify.app/) 
