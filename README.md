@@ -36,7 +36,7 @@ Users should be able to:
 ### Built with
 - HTML5 
 - CSS 
--Vanilla JS
+- Vanilla JS
 
 
 ## Author
